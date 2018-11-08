@@ -13,10 +13,8 @@ public:
 	~GameBoard();
 	void Update(void);
 	void Draw(void);
-	bool SelectPiece(VECTOR2 pos);
-	bool CheckSet(PIECE_ST state);
+	bool SetPiece(pieceSt_unique & pieceSt, VECTOR2 pos);
 	VECTOR2 GetBoardSize(void);
-	bool SetPiece(std::shared_ptr<GamePiece> piece,VECTOR2 pos);
 private:
 	void ReSize(VECTOR2 vec);
 	VECTOR2 ChangeScreenToTable(VECTOR2 pos);	// スクリーンサイズからテーブルサイズに
@@ -25,6 +23,5 @@ private:
 	VECTOR2 screenSize;
 	VECTOR2 boardSize;
 	VECTOR2 drawLT;
-	piece_List pieceList;
 };
 
