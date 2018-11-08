@@ -2,10 +2,12 @@
 #include "MouseCtl.h"
 #include <memory>
 #include <string>
-
+#include "Player.h"
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
 	std::unique_ptr<MouseCtl> MC = std::make_unique<MouseCtl>();
+	std::unique_ptr<Player> player = std::make_unique<Player>();
+
 	SetGraphMode(1080, 720, 32);
 	ChangeWindowMode(true);
 	SetWindowText("Ostle_Test");
@@ -24,6 +26,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		DrawBox(540 - 32 * 9, 360 - 32 * 9, 540 + 32 * 9, 360 + 32 * 9, 0xeeaa77, true);
 		DrawBox(32, 32, 32 + 180, 32 + 180, 0xeeaa77, true);
 		DrawBox(1080 -32, 720-32, 1080 - 32 - 180, 720 - 32 - 180, 0xeeaa77, true);
+		player->Draw();
 		ScreenFlip();
 	}
 	DxLib_End();	// DxLibÇÃèIóπ
