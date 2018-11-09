@@ -1,8 +1,10 @@
 #pragma once
 #include "BaseScene.h"
+#include "Player.h"
+#include "GameBoard.h"
 
-//typedef std::shared_ptr<Player> player_ptr;
-//typedef std::list<player_ptr> player_List;
+typedef std::shared_ptr<Player> player_ptr;
+typedef std::list<player_ptr> player_List;
 
 class MainScene :
 	public BaseScene
@@ -14,8 +16,8 @@ public:
 	unique_Base Update(unique_Base ptr, MouseCtl mouseCtl);
 
 private:
-	//std::shared_ptr<GameBoard> gBoard;
-	//player_List playerList;
-	//player_List::iterator player;
+	std::shared_ptr<GameBoard> gBoard;
+	player_List playerList;
+	player_List::iterator player;
 };
 
