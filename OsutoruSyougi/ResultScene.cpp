@@ -1,6 +1,6 @@
 #include "ResultScene.h"
 #include "TitleScene.h"
-
+#include "MouseCtl.h"
 
 ResultScene::ResultScene()
 {

@@ -1,40 +1,32 @@
+#include "DxLib.h"
 #include "TitleScene.h"
-#include "MainScene.h"
-#include "MouseCtl.h"
-
+#include "ImageManager.h"
+#include "MouseControl.h"
+#include "GameMain.h"
 
 TitleScene::TitleScene()
 {
-	Init();
 }
 
 
 TitleScene::~TitleScene()
 {
-	DeleteFontToHandle(fontHandle);
 }
 
 bool TitleScene::Init(void)
 {
-
-	fontHandle = CreateFontToHandle("Georgia", 32, 8, DX_FONTTYPE_EDGE);
 	return false;
 }
 
-unique_Base TitleScene::Update(unique_Base ptr, MouseCtl mouseCtl)
+GState_ptr TitleScene::Update(GState_ptr own, const MouseControl & mouseCtl)
 {
-	
-	ClsDrawScreen();
-
-	DrawString(0, 0, "‚½‚¢‚Æ‚é", 0xffffff, true);
-	DrawStringToHandle(SCREEN_SIZE_X/2-133,SCREEN_SIZE_Y/2 + 150 , "Please Click", 0xffffff, fontHandle);
-	
-
-	ScreenFlip();
-
-	if ((mouseCtl.GetMouseState()[ST_NOW] & (~mouseCtl.GetMouseState()[ST_OLD])) & MOUSE_INPUT_LEFT)
+	if ((mouseCtl.GetButton()[ST_NOW]) & (~mouseCtl.GetButton()[ST_OLD]))
 	{
-		return std::make_unique<MainScene>();
+		return std::make_unique<GameMain>();
 	}
-	return ptr;
+	ClsDrawScreen();
+	DrawGraph(0, 0, IMAGE_ID("image/IMG_6428.png")[0], true);
+	DrawString(0, 0, "Title", 0xffffff, true);
+	ScreenFlip();
+	return move(own);
 }

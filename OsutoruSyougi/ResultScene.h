@@ -1,5 +1,7 @@
 #pragma once
 #include "BaseScene.h"
+class MouseCtl;
+
 class ResultScene :
 	public BaseScene
 {
