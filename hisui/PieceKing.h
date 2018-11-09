@@ -6,5 +6,14 @@ class PieceKing :
 public:
 	PieceKing();
 	~PieceKing();
+
+	bool SetPos(VECTOR2 pos);
+	VECTOR2 GetPos();
+	std::vector<VECTOR2> isMove();
+	void Draw();
+private:
+	VECTOR2 pos;
+	VECTOR2 offset;
+	VECTOR2 DrawPos;
 };
 

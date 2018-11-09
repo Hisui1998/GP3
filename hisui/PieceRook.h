@@ -1,14 +1,12 @@
 #pragma once
 #include "GamePiece.h"
-
-// •à•º
-class PiecePawn :
+// ”òŽÔ
+class PieceRook :
 	public GamePiece
 {
 public:
-	PiecePawn();
-	~PiecePawn();
-	
+	PieceRook();
+	~PieceRook();
 	bool SetPos(VECTOR2 pos);
 	VECTOR2 GetPos();
 	std::vector<VECTOR2> isMove();

@@ -1,47 +1,43 @@
-#include "PieceKing.h"
+#include "PieceBishop.h"
 
 
 
-PieceKing::PieceKing()
+PieceBishop::PieceBishop()
 {
-	pos = VECTOR2{ 4, 1 };
+	pos = VECTOR2{ 1, 1 };
 	offset = { (SCR_SIZR_X / 2) - (PIECE_SIZE / 2) * 9, (SCR_SIZR_Y / 2) - (PIECE_SIZE / 2) * 9 };
 }
 
 
-PieceKing::~PieceKing()
+PieceBishop::~PieceBishop()
 {
 }
 
-bool PieceKing::SetPos(VECTOR2 pos)
+bool PieceBishop::SetPos(VECTOR2 pos)
 {
 	this->pos = pos;
 	return true;
 }
 
-VECTOR2 PieceKing::GetPos()
-{
-	return pos;
-}
-
-std::vector<VECTOR2> PieceKing::isMove()
+std::vector<VECTOR2> PieceBishop::isMove()
 {
 	std::vector<VECTOR2> Data;
 	Data.push_back(VECTOR2(-1, -1));
-	Data.push_back(VECTOR2(0, -1));
 	Data.push_back(VECTOR2(1, -1));
-	Data.push_back(VECTOR2(-1, 0));
-	Data.push_back(VECTOR2(1, 0));
 	Data.push_back(VECTOR2(-1, 1));
-	Data.push_back(VECTOR2(0, 1));
 	Data.push_back(VECTOR2(1, 1));
 	return  Data;
 }
 
-void PieceKing::Draw()
+VECTOR2 PieceBishop::GetPos()
+{
+	return pos;
+}
+
+void PieceBishop::Draw()
 {
 	DrawPos = (pos * PIECE_SIZE) + offset;
 	DrawBox(DrawPos.x + 8, DrawPos.y + 24, DrawPos.x + 56, DrawPos.y + 56, 0xcd853f, true);
 	DrawTriangle(DrawPos.x + 8, DrawPos.y + 24, DrawPos.x + 56, DrawPos.y + 24, DrawPos.x + 32, DrawPos.y + 8, 0xcd853f, true);
-	DrawString(DrawPos.x + 25, DrawPos.y + 28, "‰¤", 0, true);
+	DrawString(DrawPos.x + 25, DrawPos.y + 28, "Šp", 0, true);
 }
