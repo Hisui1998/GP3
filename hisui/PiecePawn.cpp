@@ -3,8 +3,7 @@
 
 PiecePawn::PiecePawn()
 {
-	pos =VECTOR2 { 0, 1 };
-	offset = { (SCR_SIZR_X / 2) - (PIECE_SIZE / 2) * 9, (SCR_SIZR_Y / 2) - (PIECE_SIZE / 2) * 9 };
+	offset = VECTOR2(SCR_SIZR_X - (PIECE_SIZE / 2)-192, SCR_SIZR_Y - (PIECE_SIZE / 2)-192);
 }
 
 
@@ -12,8 +11,12 @@ PiecePawn::~PiecePawn()
 {
 }
 
-bool PiecePawn::SetPos(VECTOR2 pos)
+bool PiecePawn::SetPos(VECTOR2 pos, VECTOR2 Offset)
 {
+	if (Offset != -1)
+	{
+		offset = Offset;
+	}
 	this->pos = pos;
 	return true;
 }
@@ -25,9 +28,9 @@ VECTOR2 PiecePawn::GetPos()
 
 std::vector<VECTOR2> PiecePawn::isMove()
 {
-	std::vector<VECTOR2> Date;
-	Date.push_back(VECTOR2(0, -1));
-	return  Date;
+	std::vector<VECTOR2> Data;
+	Data.push_back(VECTOR2(0, -1));
+	return  Data;
 }
 
 void PiecePawn::Draw()

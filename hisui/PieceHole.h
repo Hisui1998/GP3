@@ -1,11 +1,11 @@
 #pragma once
 #include "GamePiece.h"
-class PieceKing :
+class PieceHole :
 	public GamePiece
 {
 public:
-	PieceKing();
-	~PieceKing();
+	PieceHole();
+	~PieceHole();
 
 	bool SetPos(VECTOR2 pos, VECTOR2 Offset = -1);
 	VECTOR2 GetPos();

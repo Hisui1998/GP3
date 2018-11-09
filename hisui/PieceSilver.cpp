@@ -4,8 +4,7 @@
 
 PieceSilver::PieceSilver()
 {
-	pos = VECTOR2{ 2, 1 };
-	offset = { (SCR_SIZR_X / 2) - (PIECE_SIZE / 2) * 9, (SCR_SIZR_Y / 2) - (PIECE_SIZE / 2) * 9 };
+	offset = SCR_SIZR_X - (PIECE_SIZE / 2), SCR_SIZR_Y - (PIECE_SIZE / 2);
 }
 
 
@@ -13,8 +12,12 @@ PieceSilver::~PieceSilver()
 {
 }
 
-bool PieceSilver::SetPos(VECTOR2 pos)
+bool PieceSilver::SetPos(VECTOR2 pos, VECTOR2 Offset)
 {
+	if (Offset != -1)
+	{
+		offset = Offset;
+	}
 	this->pos = pos;
 	return true;
 }
