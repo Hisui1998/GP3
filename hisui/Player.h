@@ -22,7 +22,6 @@ private:
 	// Ëß°½‘I‘ð’†‚©‚Ç‚¤‚©‚ÌÌ×¸Þ
 	bool isSelect;
 
-	//std::unique_ptr<PieceTray> PieceTray;
-	std::shared_ptr<GamePiece> hu;
+	std::unique_ptr<PieceTray> Tray;
 };
 

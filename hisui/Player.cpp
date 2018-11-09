@@ -2,14 +2,17 @@
 #include "MouseCtl.h"
 #include "GameBoard.h"
 #include "GamePiece.h"
-#include "PiecePawn.h"
+#include "PieceTray.h"
+
+
 int Player::PlCnt = 0;
 
 Player::Player()
 {
 	state = (PIECE_ST)PlCnt++;
 	isSelect = false;
-	hu = std::make_unique<PiecePawn>();
+
+	Tray = std::make_unique<PieceTray>();
 	/*
 	生成時にﾋﾟｰｽを作ってボードに設置する
 	そのあとﾋﾟｰｽﾄﾚｲにも歩のコマを三つ追加する
@@ -52,5 +55,5 @@ bool Player::CheckTurn(MouseCtl & _Mc, GameBoard & _Gb)
 
 void Player::Draw()
 {
-	hu->Draw();
+	Tray->Draw();
 }
