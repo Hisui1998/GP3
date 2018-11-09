@@ -13,10 +13,11 @@ public:
 	virtual ~GamePiece();
 
 	/// ç¿ïWånä÷êî
-	virtual bool SetPos(VECTOR2 pos) = 0;
+	virtual bool SetPos(VECTOR2 pos, VECTOR2 Offset = -1) = 0;
 	virtual VECTOR2 GetPos() = 0;
 	/// ï`âÊånä÷êî
 	virtual void Draw() = 0;
 	virtual std::vector<VECTOR2> isMove() = 0;
+	virtual bool Endless();
 };
 

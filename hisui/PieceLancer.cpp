@@ -4,8 +4,7 @@
 
 PieceLancer::PieceLancer()
 {
-	pos = VECTOR2{ 0, 1 };
-	offset = { (SCR_SIZR_X / 2) - (PIECE_SIZE / 2) * 9, (SCR_SIZR_Y / 2) - (PIECE_SIZE / 2) * 9 };
+	offset = SCR_SIZR_X - (PIECE_SIZE / 2), SCR_SIZR_Y - (PIECE_SIZE / 2);
 }
 
 
@@ -13,8 +12,12 @@ PieceLancer::~PieceLancer()
 {
 }
 
-bool PieceLancer::SetPos(VECTOR2 pos)
+bool PieceLancer::SetPos(VECTOR2 pos, VECTOR2 Offset)
 {
+	if (Offset != -1)
+	{
+		offset = Offset;
+	}
 	this->pos = pos;
 	return true;
 }
@@ -37,4 +40,9 @@ void PieceLancer::Draw()
 	DrawBox(DrawPos.x + 8, DrawPos.y + 24, DrawPos.x + 56, DrawPos.y + 56, 0xcd853f, true);
 	DrawTriangle(DrawPos.x + 8, DrawPos.y + 24, DrawPos.x + 56, DrawPos.y + 24, DrawPos.x + 32, DrawPos.y + 8, 0xcd853f, true);
 	DrawString(DrawPos.x + 25, DrawPos.y + 20, "çÅ\né‘", 0, true);
+}
+
+bool PieceLancer::Endless()
+{
+	return true;
 }
