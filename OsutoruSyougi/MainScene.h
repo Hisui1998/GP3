@@ -1,5 +1,6 @@
 #pragma once
 #include "BaseScene.h"
+class MouseCtl;
 
 //typedef std::shared_ptr<Player> player_ptr;
 //typedef std::list<player_ptr> player_List;

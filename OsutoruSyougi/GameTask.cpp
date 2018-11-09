@@ -2,6 +2,8 @@
 #include "GameTask.h"
 #include "ImageManager.h"
 #include "TitleScene.h"
+#include "MainScene.h"
+#include "ResultScene.h"
 
 std::unique_ptr<GameTask, GameTask::GameTaskDeleter> GameTask::s_Instance(new GameTask());
 

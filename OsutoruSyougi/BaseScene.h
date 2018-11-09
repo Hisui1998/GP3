@@ -1,6 +1,5 @@
 #pragma once
 #include <memory>
-#include "MouseCtl.h"
 #include "DxLib.h"
 class MouseCtl;
 class BaseScene;
