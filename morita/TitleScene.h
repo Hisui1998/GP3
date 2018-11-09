@@ -10,5 +10,6 @@ public:
 	unique_Base Update(unique_Base ptr, MouseCtl mouseCtl);
 private:
 	int fontHandle;
+	int BlinkCnt;
 };
 

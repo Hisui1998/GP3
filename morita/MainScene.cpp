@@ -14,9 +14,14 @@ MainScene::~MainScene()
 bool MainScene::Init(void)
 {
 	auto Makeplayer = [=]() {
-		//playerList.push_back(*&std::shared_ptr<Player>(new Player()));
+		playerList.push_back(*&std::shared_ptr<Player>(new Player()));
 	};
-	//player = playerList.begin();
+	gBoard = std::make_shared<GameBoard>();
+	playerList.clear();
+
+	Makeplayer();
+	Makeplayer();
+	player = playerList.begin();
 	return false;
 }
 
@@ -26,10 +31,25 @@ unique_Base MainScene::Update(unique_Base ptr, MouseCtl mouseCtl)
 
 	DrawString(0, 0, "‚ß‚¢‚ñ", 0xffffff, true);
 
-	ScreenFlip();
-	if ((mouseCtl.GetBtn()[ST_NOW] & (~mouseCtl.GetBtn()[ST_OLD])) & MOUSE_INPUT_LEFT)
+	if ((*player)->CheckTurn(mouseCtl, *gBoard) == true)
 	{
-		return std::make_unique<ResultScene>();
+		player++;
+		if (player == playerList.end())
+		{
+			player = playerList.begin();
+		}
+	}
+
+	gBoard->Draw();
+	for (auto itr : playerList)
+	{
+		itr->Draw();
+	}
+
+	ScreenFlip();
+	if ((mouseCtl.GetMouseState()[ST_NOW] & (~mouseCtl.GetMouseState()[ST_OLD])) & MOUSE_INPUT_RIGHT)
+	{
+		return std::make_unique<ResultScene>(gBoard,playerList);
 	}
 	return ptr;
 }
