@@ -1,6 +1,7 @@
 #include "DxLib.h"
 #include "GameBoard.h"
 #include "GameTask.h"
+#include "GamePiece.h"
 
 #define BOARD_CNT (9)
 #define BOARD_SIZE (64)
@@ -32,34 +33,22 @@ void GameBoard::Draw(void)
 	{
 		DrawLine((BOARD_SIZE * x) + drawLT.x, drawLT.y, (BOARD_SIZE * x) + drawLT.x, screenSize.y - drawLT.y, 0x000000, true);
 	}
-
 }
 
-bool GameBoard::SelectPiece(VECTOR2 pos)
+bool GameBoard::SetPiece(pieceSt_unique & pieceSt, VECTOR2 pos)
 {
 	bool retFlag = false;
 	VECTOR2 mousepos = ChangeScreenToTable(pos);
 	if (VECTOR2(0, 0) <= mousepos && mousepos < VECTOR2(BOARD_CNT, BOARD_CNT))
 	{
-
+		pieceSt->SetPos(pos * BOARD_SIZE);
 	}
 	return retFlag;
-}
-
-bool GameBoard::CheckSet(PIECE_ST state)
-{
-
-	return false;
 }
 
 VECTOR2 GameBoard::GetBoardSize(void)
 {
 	return VECTOR2(BOARD_CNT,BOARD_CNT);
-}
-
-bool GameBoard::SetPiece(std::shared_ptr<GamePiece> piece, VECTOR2 pos)
-{
-	return false;
 }
 
 void GameBoard::ReSize(VECTOR2 vec)

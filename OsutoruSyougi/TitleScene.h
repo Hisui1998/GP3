@@ -1,14 +1,13 @@
 #pragma once
-#include "BaseScene.h"
+#include <memory>
+#include "GameBase.h"
 class TitleScene :
-	public BaseScene
+	public GameBase
 {
 public:
 	TitleScene();
 	~TitleScene();
 	bool Init(void);
-	unique_Base Update(unique_Base ptr, MouseCtl mouseCtl);
-private:
-	int fontHandle;
+	GState_ptr Update(GState_ptr own, const MouseControl & mouseCtl);
 };
 

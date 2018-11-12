@@ -28,24 +28,24 @@ bool Player::CheckTurn(MouseCtl & _Mc, GameBoard & _Gb)
 	// œ≥ΩÇÃèÛë‘ï€éùïœêî
 	mInt m_info = _Mc.GetMouseState();
 
-	if (m_info[ST_NOW] != m_info[ST_OLD])
-	{
-		//if (!isSelect)
-		//{
-		//	if (_Gb.SelectPiece(_Mc.GetMousePos()))
-		//	{
-		//		isSelect = true;
-		//	}
-		//}
-		//else
-		//{
-		//	if (_Gb.CheckSet(state))
-		//	{
-		//		isSelect = false;
-		//		rtnFlag = true;
-		//	}
-		//}
-	}
+	//if (m_info[ST_NOW] != m_info[ST_OLD])
+	//{
+	//	//if (!isSelect)
+	//	//{
+	//	//	if (_Gb.SelectPiece(_Mc.GetMousePos()))
+	//	//	{
+	//	//		isSelect = true;
+	//	//	}
+	//	//}
+	//	//else
+	//	//{
+	//	//	if (_Gb.CheckSet(state))
+	//	//	{
+	//	//		isSelect = false;
+	//	//		rtnFlag = true;
+	//	//	}
+	//	//}
+	//}
 
 	return rtnFlag;
 }
